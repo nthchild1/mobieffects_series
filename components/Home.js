@@ -34,8 +34,6 @@ const Home = props => {
     }
   }, [setURL, text, wordCount]);
 
-  useEffect(() => console.log(data), [data]);
-
   return (
     <View style={[Screens.default, Screens.HomeScreen]}>
       <Text style={[Typo.altBold, Typo.extra, {color: 'white'}]}>Buscar</Text>
@@ -44,7 +42,9 @@ const Home = props => {
         style={Forms.textInput}
         onChangeText={value => setText(value)}
       />
-      {!isLoading && !isError && <ShowList shows={data} />}
+      {!isLoading && !isError && (
+        <ShowList shows={data} navigation={props.navigation} />
+      )}
       {isLoading && (
         <ActivityIndicator
           style={{margin: 20}}

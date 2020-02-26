@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Colors from './Colors';
 
-const Screens = StyleSheet.create({
+const Lists = StyleSheet.create({
   default: {
     flex: 1,
     width: '100%',
@@ -16,4 +16,4 @@ const Screens = StyleSheet.create({
   },
 });
 
-export default Screens;
+export default Lists;

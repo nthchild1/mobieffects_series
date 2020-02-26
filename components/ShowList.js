@@ -1,21 +1,32 @@
 import React from 'react';
-import {FlatList, View, Text} from 'react-native';
+import {FlatList, View, Text, Image, TouchableOpacity} from 'react-native';
 
 const ShowList = props => {
   const {shows} = props;
 
-  function Item({name}) {
+  function Item({show}) {
+    const {image, name} = show;
+
+    const imageURL = image && 'medium' in image ? image.medium : null;
+
     return (
-      <View>
-        <Text>{name}</Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => props.navigation.navigate('SingleShow', {...show})}>
+        <View>
+          <Image source={{uri: imageURL}} style={{width: 100, height: 160}} />
+        </View>
+        <View>
+          <Text>{name}</Text>
+        </View>
+      </TouchableOpacity>
     );
   }
 
   return (
     <FlatList
+      style={{width: '100%'}}
       data={shows}
-      renderItem={({item}) => <Item name={item.show.name} image={item.show.image} />}
+      renderItem={({item}) => <Item show={item.show} />}
       keyExtractor={item => item.id}
     />
   );
