@@ -13,7 +13,8 @@ const ShowList = props => {
   function Item({show}) {
     const {image, name, language, genres} = show;
     console.log(show);
-    const imageURL = image && 'medium' in image ? image.medium : null;
+    const imageURL =
+      image && 'medium' in image ? image.medium.replace('http', 'https') : null;
 
     return (
       <TouchableOpacity

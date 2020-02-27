@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Linking,
-} from 'react-native';
+import {StyleSheet, View, Text, Image, Linking} from 'react-native';
 import WebView from 'react-native-webview';
 import HTML from 'react-native-render-html';
 import Typo from '../styles/Typo';
@@ -44,10 +38,9 @@ const SeasonList = ({seasons}) => {
       <View>
         <Text> {`Temporada ${index + 1}`} </Text>
         {season.map(episode => {
-          console.log(episode);
           const imageURL =
             episode.image && 'medium' in episode.image
-              ? episode.image.medium
+              ? episode.image.medium.replace('http', 'https')
               : null;
 
           return (
@@ -56,7 +49,9 @@ const SeasonList = ({seasons}) => {
                 style={{width: 100, height: 160}}
                 source={{uri: imageURL}}
               />
-              <Text style={[Typo.altBold, {color: 'white', margin: 10}]}>{episode.name}</Text>
+              <Text style={[Typo.altBold, {color: 'white', margin: 10}]}>
+                {episode.name}
+              </Text>
               <HTML
                 html={episode.summary}
                 renderers={renderers}

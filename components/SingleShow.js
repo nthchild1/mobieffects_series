@@ -39,11 +39,12 @@ const SingleShow = props => {
   } = props.route.params;
 
   useEffect(() => {
-    const dataURL = `http://api.tvmaze.com/shows/${id}/episodes`;
+    const dataURL = `https://api.tvmaze.com/shows/${id}/episodes`;
     setURL(dataURL);
   }, [id, setURL]);
+  const imageURL =
+    image && 'medium' in image ? image.medium.replace('http', 'https') : null;
 
-  const imageURL = image && 'medium' in image ? image.medium : null;
   const [seasons, setSeasons] = useState([]);
   const [{data, isLoading, isError}, setURL] = useDataApi(undefined, undefined);
 

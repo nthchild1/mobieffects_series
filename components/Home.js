@@ -19,18 +19,11 @@ const Home = props => {
   const [wordCount, setWordCount] = useState(0);
   const [{data, isLoading, isError}, setURL] = useDataApi(undefined, undefined);
 
-  useEffect(() => {
-    if (isError) {
-      Alert.alert('Error', `No se encontró nada con ${text}`, [{text: 'OK'}]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isError]);
-
   useEffect(() => setWordCount(text.split(' ').length), [text]);
 
   useEffect(() => {
     if (text !== '') {
-      const url = `http://api.tvmaze.com/search/shows?q=${text.replace(
+      const url = `https://api.tvmaze.com/search/shows?q=${text.replace(
         ' ',
         '%20',
       )}`;
