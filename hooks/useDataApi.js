@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useReducer} from 'react';
 
+
 const dataFetchReducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_INIT':
@@ -22,6 +23,15 @@ const dataFetchReducer = (state, action) => {
   }
 };
 
+
+/**
+ * A React Hook used to load data dynamically
+ * @param {string} initialUrl - The first URL from where to fetch
+ * @param {any} initialData - The initital data over which the downloaded data will be composed
+ * @author @TKY2048
+ * @returns {object} state - State of the hook containing the flags isError, isLoading and data.
+ * @returns {function} setUrl - An utility function used to change the url used by the hook.
+ */
 export const useDataApi = (initialUrl, initialData) => {
   const [url, setUrl] = useState(initialUrl);
 

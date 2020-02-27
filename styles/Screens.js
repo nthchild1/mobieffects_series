@@ -11,6 +11,9 @@ const Screens = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.vibrant,
   },
+  SingleShow: {
+    backgroundColor: Colors.vibrant,
+  },
   LyricsScreen: {
     alignItems: 'center',
   },

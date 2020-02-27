@@ -17,7 +17,10 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Stack.Screen name="mobieEffects" component={Home} />
         <Stack.Screen name="SingleShow" component={SingleShow} />
       </Stack.Navigator>

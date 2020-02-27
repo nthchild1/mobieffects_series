@@ -8,10 +8,14 @@ import Colors from '../styles/Colors';
 import Typo from '../styles/Typo';
 import ShowList from './ShowList';
 
+/**
+ * Main component launched on start. handles searching shows on the API and displaying them in a ShowList Component.
+ * @author @TKY2048
+ */
 const Home = props => {
   const {navigation} = props;
 
-  const [text, setText] = useState('Artista');
+  const [text, setText] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const [{data, isLoading, isError}, setURL] = useDataApi(undefined, undefined);
 
